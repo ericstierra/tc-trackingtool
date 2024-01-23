@@ -1,3 +1,15 @@
+function getDirection(bearing) {
+  const directions = [
+    "North", "North-Northeast", "Northeast", "East-Northeast",
+    "East", "East-Southeast", "Southeast", "South-Southeast",
+    "South", "South-Southwest", "Southwest", "West-Southwest",
+    "West", "West-Northwest", "Northwest", "North-Northwest"
+  ];
+
+  const index = Math.round(bearing / 22.5) % 16;
+  return directions[index];
+}
+
 function calculateDistanceAndBearing() {
     // Get input values
     const lat1 = parseFloat(document.getElementById('lat1').value);
@@ -33,24 +45,7 @@ function calculateDistanceAndBearing() {
     bearing = (bearing + 360) % 360;
   
     // Determine cardinal direction
-    let direction;
-    if (bearing >= 337.5 || bearing < 22.5) {
-      direction = 'North';
-    } else if (bearing >= 22.5 && bearing < 67.5) {
-      direction = 'Northeast';
-    } else if (bearing >= 67.5 && bearing < 112.5) {
-      direction = 'East';
-    } else if (bearing >= 112.5 && bearing < 157.5) {
-      direction = 'Southeast';
-    } else if (bearing >= 157.5 && bearing < 202.5) {
-      direction = 'South';
-    } else if (bearing >= 202.5 && bearing < 247.5) {
-      direction = 'Southwest';
-    } else if (bearing >= 247.5 && bearing < 292.5) {
-      direction = 'West';
-    } else if (bearing >= 292.5 && bearing < 337.5) {
-      direction = 'Northwest';
-    }
+    const direction = getDirection(bearing);
   
     // Get town and cyclone names from textboxes
     const townName = document.getElementById('townName').value;
