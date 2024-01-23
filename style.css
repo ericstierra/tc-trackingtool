@@ -1,0 +1,123 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px; /* Add margin for the footer */
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.form-section {
+  padding: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #343a40;
+}
+
+.coordinates-input {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  margin-bottom: 16px; /* Add margin for better spacing */
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px; /* Add bottom margin for better spacing in mobile view */
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.disclaimer-section {
+  padding: 20px;
+  text-align: justify;
+}
+
+.result-section {
+  padding: 20px;
+  text-align: center;
+  display: none; /* Initially hide the result */
+}
+
+#result.show {
+  display: block; /* Show the result when the "show" class is applied */
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  header {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+
+  .coordinates-input {
+    flex-direction: column; /* Display input fields in a column on small screens */
+  }
+
+  input {
+    margin-right: 0; /* Remove right margin to allow full width in mobile view */
+  }
+}

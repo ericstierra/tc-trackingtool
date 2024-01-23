@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tropical Cyclone Tracking Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Tropical Cyclone Tracking Tool</h1>
+  </header>
+
+  <section class="form-section">
+    <form id="coordinateForm">
+      <label for="lat1">Your City/Municipality Coordinates:</label>
+      <div class="coordinates-input">
+        <input type="text" id="lat1" placeholder="Latitude" required>
+        <input type="text" id="lon1" placeholder="Longitude" required>
+      </div>
+
+      <label for="lat2">Tropical Cyclone Eye Coordinates:</label>
+      <div class="coordinates-input">
+        <input type="text" id="lat2" placeholder="Latitude" required>
+        <input type="text" id="lon2" placeholder="Longitude" required>
+      </div>
+
+      <button type="button" onclick="calculateDistanceAndBearing()">Calculate</button>
+      <div id="result" class="result-section"></div>
+    </form>
+    </section>
+
+    <section class="disclaimer-section">
+        <h2>Disclaimer</h2>
+        <p>
+          To obtain the coordinates of your municipality or city, you can use services like Google Maps or Google Earth. 
+          For the Tropical Cyclone eye coordinates, it is recommended to refer to the latest bulletin from PAGASA for the active Tropical Cyclone.
+        </p>
+      </section>
+
+  <footer>
+    <p>&copy; 2024 Tropical Cyclone Tracking Tool<br/>
+    Developed by EST - MDRRMO Atimonan</p>
+  </footer>
+
+</div>
+
+
+
+<script src="calculate.js"></script>
+
+</body>
+</html>
