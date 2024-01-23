@@ -52,10 +52,49 @@ function calculateDistanceAndBearing() {
       direction = 'Northwest';
     }
   
-   // Display results
+    // Get town and cyclone names from textboxes
+    const townName = document.getElementById('townName').value;
+    const cycloneName = document.getElementById('cycloneName').value;
+
+  // Display results
   const resultText = `Distance: ${distance.toFixed(2)} km<br>Bearing: ${bearing.toFixed(2)} degrees (${direction})`;
   const resultElement = document.getElementById('result');
   resultElement.innerHTML = resultText;
-  resultElement.classList.add('show'); // Add "show" class to display the result
+
+  // Show result section
+  resultElement.classList.add('show');
+
+  // Clear previous map content
+  const mapElement = document.getElementById('map');
+  mapElement.innerHTML = '';
+
+  // Remove previous map instance (if exists)
+  if (mapElement._leaflet_id) {
+    mapElement._leaflet_id = null;
+  }
+
+  // Create a new map
+  const map = L.map('map').setView([12.8797, 121.7740], 6); // Centered on Philippines
+
+  // Add OpenStreetMap as the basemap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add markers for the two points with labels
+  const townMarker = L.marker([parseFloat(lat1), parseFloat(lon1)]).addTo(map);
+  townMarker.bindPopup(`<b>${townName}</b>`).openPopup(); // Add town name label
+
+  const cycloneMarker = L.marker([parseFloat(lat2), parseFloat(lon2)]).addTo(map);
+  cycloneMarker.bindPopup(`<b>${cycloneName}</b>`).openPopup(); // Add cyclone name label
+
+  // Draw a line between the two points
+  const line = L.polyline([
+    [parseFloat(lat1), parseFloat(lon1)],
+    [parseFloat(lat2), parseFloat(lon2)]
+  ]).addTo(map);
+
+  // Fit the map to the markers and line
+  map.fitBounds([townMarker.getLatLng(), cycloneMarker.getLatLng(), line.getBounds().getCenter()]);
 }
   

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tropical Cyclone Tracking Tool</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,27 +29,33 @@
         <input type="text" id="lon2" placeholder="Longitude" required>
       </div>
 
-      <button type="button" onclick="calculateDistanceAndBearing()">Calculate</button>
-      <div id="result" class="result-section"></div>
-    </form>
-    </section>
+       <!-- Inside the form, below the coordinates-input divs -->
+      <label for="townName">Enter Town name and TC Name:</label>
+      <input type="text" id="townName" placeholder="Town Name" required>
+      <input type="text" id="cycloneName" placeholder="Cyclone Name" required>
 
-    <section class="disclaimer-section">
-        <h2>Disclaimer</h2>
-        <p>
-          To obtain the coordinates of your municipality or city, you can use services like Google Maps or Google Earth. 
-          For the Tropical Cyclone eye coordinates, it is recommended to refer to the latest bulletin from PAGASA for the active Tropical Cyclone.
-        </p>
-      </section>
+      <button type="button" onclick="calculateDistanceAndBearing()">Calculate</button>
+    </form>
+  </section>
+
+  <section class="result-section">
+    <div id="result" class="result-content"></div>
+    <div id="map" class="map-section"></div>
+  </section>
+
+  <section class="disclaimer-section">
+    <h2>Disclaimer</h2>
+    <p>
+      To obtain the coordinates of your municipality or city, you can use services like Google Maps or Google Earth. 
+      For the Tropical Cyclone eye coordinates, it is recommended to refer to the latest bulletin from PAGASA for the active Tropical Cyclone.
+    </p>
+  </section>
 
   <footer>
     <p>&copy; 2024 Tropical Cyclone Tracking Tool<br/>
     Developed by EST - MDRRMO Atimonan</p>
   </footer>
-
 </div>
-
-
 
 <script src="calculate.js"></script>
 

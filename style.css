@@ -69,6 +69,11 @@ button {
   width: 100%;
 }
 
+.map-section {
+  height: 300px; /* Adjust the height based on your design preferences */
+  margin-top: 20px;
+}
+
 button:hover {
   background-color: #0056b3;
 }
@@ -78,20 +83,21 @@ button:hover {
   text-align: justify;
 }
 
-.result-section {
+.result-content {
   padding: 20px;
   text-align: center;
   display: none; /* Initially hide the result */
 }
 
-#result.show {
-  display: block; /* Show the result when the "show" class is applied */
+.show {
+  display: block;
   margin-top: 20px;
   padding: 10px;
   background-color: #e6e6e6;
   border-radius: 8px;
   font-weight: bold;
 }
+
 
 footer {
   background-color: #343a40;
